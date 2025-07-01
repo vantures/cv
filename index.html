@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carey Van | Software Engineer</title>
+  <!-- Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+  <!-- Scripts -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-wrapper">
+      <div class="logo">Carey&nbsp;Van</div>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Landing / Intro -->
+    <section id="home" class="intro container animate">
+      <div class="intro__content animate">
+        <h1 class="intro__headline">Hi, I'm Carey</h1>
+        <p class="intro__subhead">I have an affinity for creative automation, untangling messy workflows, and side projects that somehow turn into full-blown rabbit holes. Efficiency is my love language.</p>
+      </div>
+      <div class="intro__image animate">
+        <img src="assets/itme.jpg" alt="Carey Van headshot" />
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="projects container animate">
+      <h2>Projects</h2>
+      <div class="project__grid">
+        <!-- PassPath.ai project card -->
+        <article class="project project--image">
+          <a href="https://passpath.ai" class="project__link" target="_blank" rel="noopener">
+            <img src="assets/images/passpath-landing.png" alt="Screenshot of PassPath.ai landing page" class="project__img" />
+            <div class="project__title-bar">PassPath.ai</div>
+            <div class="project__overlay-desc">PassPath.ai is a CPA exam study site I built using Cursor, Lovable, Supabase, and OpenAI. I learned how to manage a large database, a live product, improve UX, and balance automation with accuracy.</div>
+          </a>
+        </article>
+
+        <!-- Lunaby.ai project card -->
+        <article class="project project--image">
+          <a href="https://lunaby.ai" class="project__link" target="_blank" rel="noopener">
+            <img src="assets/images/lunaby-landing.png" alt="Screenshot of Lunaby.ai landing page" class="project__img" />
+            <div class="project__title-bar">Lunaby.ai</div>
+            <div class="project__overlay-desc">Lunaby is a bedtime story app I built using Supabase, Lovable, and OpenAI. It generates personalized stories and images based on a child’s name and interests, with audio narration via ElevenLabs. I learned how to build engaging user flows and balance creativity with performance.</div>
+          </a>
+        </article>
+
+        <!-- Pecking Order project card -->
+        <article class="project project--image">
+          <a href="https://pecking-order.com" class="project__link" target="_blank" rel="noopener">
+            <img src="assets/images/pecking-order-landing.png" alt="Screenshot of Pecking Order landing page" class="project__img" />
+            <div class="project__title-bar">Pecking Order</div>
+            <div class="project__overlay-desc">Pecking Order is a Wingspan-inspired web game I built using Cursor, Supabase, and OpenAI. It helps players decide who goes first in board games through a bird-themed race. I used it to explore game logic, playful design, and how to keep things lightweight and fun on both desktop and mobile.</div>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about container animate">
+      <h2>About</h2>
+      <p>I'm a CPA with over 15 years of experience, including 8 years focused on revenue accounting in the fast-paced world of SaaS. I like making things work better, whether that means automating a clunky workflow, building internal tools, or eliminating one more pointless mouse click. I'm big on smart processes, creative problem-solving, and using technology to make finance a little less painful and a lot more efficient.</p>
+      <p>Outside of work, I’m a husband, a dad of two, and someone with probably too many hobbies. I’m usually reading something interesting, chasing live music, or brainstorming new ideas. I believe good work comes from a mix of curiosity, technical skill, and a healthy desire to keep improving things, even just 1% at a time.</p>
+      </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact container animate">
+      <h2>Contact</h2>
+      <p>Feel free to reach out on any platform below.</p>
+      <div class="contact__links">
+        <a href="mailto:careyvan84@gmail.com" aria-label="Email Carey">✉️</a>
+        <a href="https://github.com/careyvan" target="_blank" rel="noopener" aria-label="GitHub"></a>
+        <a href="https://linkedin.com/in/carey-van" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Carey&nbsp;Van</p>
+  </footer>
+</body>
+</html> 

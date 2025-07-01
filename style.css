@@ -1,0 +1,408 @@
+/* ===== CSS RESET (simplified) ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== Theme Variables ===== */
+:root {
+  /* Light mode */
+  --color-bg: #f9fafb;
+  --color-bg-secondary: #e9ecf3;
+  --color-text: #111827;
+  --color-accent: #2563eb;
+  --color-border: rgba(17, 24, 39, 0.1);
+}
+
+:root[data-theme="dark"] {
+  /* Soft dark mode */
+  --color-bg: #0f172a;
+  --color-bg-secondary: #1e293b;
+  --color-text: #f1f5f9;
+  --color-accent: #3b82f6;
+  --color-border: rgba(241, 245, 249, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  /* More pronounced blue-white gradient */
+  background: linear-gradient(145deg, #c8e3ff 0%, #dff0ff 40%, #f4faff 70%, #ffffff 100%);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: min(90%, 60rem); /* center content with max width */
+  margin-inline: auto;
+  padding-block: 4rem;
+}
+
+/* ===== Navigation Bar ===== */
+.navbar {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding-block: 1rem;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+:root[data-theme="dark"] .navbar {
+  background: rgba(15, 23, 42, 0.6);
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.nav__list {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav__list a {
+  color: var(--color-text);
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  transition: background-color 0.2s ease;
+}
+
+.nav__list a:hover,
+.nav__list a:focus {
+  background-color: var(--color-border);
+}
+
+/* Push nav links to right */
+.nav {
+  margin-left: auto;
+}
+
+/* ===== Intro Section ===== */
+.intro {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* left aligned content */
+  gap: 2rem;
+  flex-wrap: wrap;
+  min-height: 60vh;
+  text-align: left;
+}
+
+.intro__headline {
+  font-size: clamp(2.25rem, 5vw + 1rem, 3rem); /* bigger */
+  font-weight: 700;
+  max-width: 40rem;
+}
+
+/* Intro columns use equal flex so image centers in right column */
+.intro__content {
+  flex: 1 1 320px;
+}
+
+.intro__image {
+  flex: 1 1 260px;
+  display: flex;
+  justify-content: center; /* center horizontally within its column */
+}
+
+.intro__image img {
+  width: 260px;
+  height: 260px;
+  border-radius: 0.75rem; /* softly rounded corners */
+  object-fit: cover;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transform: rotate(3deg);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.intro__image img:hover {
+  transform: rotate(0deg) translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.intro__subhead {
+  font-size: 1.125rem; /* bigger subtitle */
+  margin-top: 1rem;
+  max-width: 35ch;
+  color: var(--color-text);
+}
+
+/* ===== Simple Fade-Up Animation ===== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.animate.in {
+  animation: fadeUp 0.7s ease-out forwards;
+}
+
+/* ===== Projects Section ===== */
+.projects h2,
+.about h2,
+.contact h2 {
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.project__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.project {
+  padding: 1.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+:root[data-theme="dark"] .project {
+  background: rgba(30, 41, 59, 0.6);
+}
+
+.project:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.project__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.project__description {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  text-decoration: none;
+  font-weight: 500;
+  background-color: var(--color-accent);
+  color: #ffffff;
+  transition: background-color 0.2s ease;
+}
+
+.button:hover,
+.button:focus {
+  filter: brightness(0.9);
+}
+
+/* ===== About Section ===== */
+.about p {
+  max-width: 50ch;
+  margin-bottom: 1.25rem;
+}
+
+/* ===== Contact Section ===== */
+.contact__links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.contact__links a {
+  font-size: 1.5rem;
+  color: var(--color-text);
+  transition: color 0.2s ease;
+}
+
+.contact__links a:hover,
+.contact__links a:focus {
+  color: var(--color-accent);
+}
+
+/* ===== Footer ===== */
+.footer {
+  margin-top: auto;
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 0.875rem;
+  border-top: 1px solid var(--color-border);
+}
+
+/* ===== Responsive Navigation ===== */
+@media (max-width: 640px) {
+  .nav__list {
+    gap: 0.5rem;
+  }
+  .navbar {
+    padding: 0.75rem 1rem;
+  }
+  .intro {
+    text-align: center;
+  }
+  .intro__headline {
+    margin-inline: auto;
+  }
+}
+
+/* Inner wrapper aligns header content to same width as sections */
+.nav-wrapper {
+  width: min(90%, 60rem);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+}
+
+/* ===== Image-style Project Card ===== */
+/* Compact, square, tilted project card */
+.project--image {
+  position: relative;
+  padding: 0; /* image fills entire card */
+  border: none;
+  background: none;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transform: rotate(-3deg);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Alternate tilt direction for even cards */
+.project--image:nth-child(even) {
+  transform: rotate(3deg);
+}
+
+/* Subtle lift and straighten on hover */
+.project--image:hover {
+  transform: rotate(0deg) translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.project__img {
+  width: 100%;
+  /* Square aspect ratio */
+  aspect-ratio: 1 / 1;
+  height: auto;
+  /* Recommend uploading images at 590×825 (or 1180×1650 for retina) */
+  object-fit: cover;
+  display: block;
+}
+
+.project__link {
+  display: block;
+  height: 100%;
+}
+
+.project__overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%; /* full height, we'll slide it */
+  /* Darker blue gradient for stronger contrast */
+  background: linear-gradient(to top, rgba(26, 70, 180, 0.96) 0%, rgba(37, 99, 235, 0.9) 60%, rgba(37, 99, 235, 0.4) 95%, rgba(37, 99, 235, 0) 100%);
+  color: #ffffff;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: transform 0.35s ease, background 0.35s ease;
+  font-size: 0.95rem;
+  overflow: hidden; /* hide overflowing long text until hover */
+  /* Initially show only the bottom 5.5rem (title bar) */
+  transform: translateY(calc(100% - 5.5rem));
+}
+
+.project--image:hover .project__overlay {
+  transform: translateY(0); /* slide up to reveal */
+  background: rgba(26, 70, 180, 0.97);
+  overflow-y: auto; /* allow scroll if content exceeds height */
+}
+
+.project--image .project__title {
+  margin-top: auto; /* pushes title to bottom */
+  margin-bottom: 0.25rem;
+}
+
+/* Hide description until hover for cleaner initial view */
+.project--image .project__description {
+  margin: 0;
+  display: none;
+}
+
+.project--image:hover .project__description {
+  display: block;
+}
+
+/* Ensure title sits at the bottom edge of the overlay */
+.project--image .project__title {
+  margin-top: auto; /* pushes title to bottom */
+  margin-bottom: 0.25rem;
+}
+
+/* Title bar overlay always visible */
+.project__title-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.75rem 1rem;
+  /* Light blue gradient fade upward */
+  background: linear-gradient(to top, rgba(191, 219, 254, 0.95) 0%, rgba(191, 219, 254, 0.6) 60%, rgba(191, 219, 254, 0) 100%);
+  color: #000000;
+  font-size: 1.1rem;
+  font-weight: 600;
+  pointer-events: none; /* ensures click passes through to link */
+}
+
+/* Remove description styling (no description needed) */
+.project--image .project__description { display: none; }
+
+/* === Hover description overlay === */
+.project__overlay-desc {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem; /* increased for better readability */
+  line-height: 1.4;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none; /* keep link clickable */
+  border-radius: inherit;
+}
+
+.project--image:hover .project__overlay-desc {
+  opacity: 1;
+} 
