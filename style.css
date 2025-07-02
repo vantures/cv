@@ -66,6 +66,13 @@ body {
 .logo {
   font-weight: 600;
   font-size: 1.125rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 3.2rem; /* enlarged logo */
+  display: block;
 }
 
 .nav__list {
@@ -87,9 +94,14 @@ body {
   background-color: var(--color-border);
 }
 
-/* Push nav links to right */
+/* Push nav links to right on desktop */
 .nav {
   margin-left: auto;
+}
+
+/* ===== Mobile Navigation Toggle ===== */
+.nav__toggle {
+  display: none;
 }
 
 /* ===== Intro Section ===== */
@@ -121,8 +133,8 @@ body {
 }
 
 .intro__image img {
-  width: 260px;
-  height: 260px;
+  width: 300px;
+  height: 300px;
   border-radius: 0.75rem; /* softly rounded corners */
   object-fit: cover;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -170,6 +182,99 @@ body {
   font-size: 1.75rem;
   margin-bottom: 2rem;
   font-weight: 600;
+}
+
+/* === Full-width themed section backgrounds === */
+.projects,
+.about,
+.contact {
+  position: relative; /* anchor pseudo background */
+  margin-block: 0; /* eliminate blue gap between sections */
+}
+
+.projects::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* stretch beyond inner container */
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -3;
+  background: linear-gradient(180deg, #f2f9ff 0%, #eaf4ff 50%, #ffffff 100%);
+}
+
+/* Decorative SVG dot pattern overlay for Projects */
+.projects::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  /* Two large soft circles */
+  background-image: radial-gradient(circle at 85% 15%, rgba(173, 216, 255, 0.35) 0 140px, rgba(173, 216, 255, 0) 150px),
+                    radial-gradient(circle at 10% 80%, rgba(173, 216, 255, 0.25) 0 120px, rgba(173, 216, 255, 0) 130px);
+  background-repeat: no-repeat;
+  z-index: -2;
+}
+
+/* About — gentle pale-yellow gradient */
+.about::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -3;
+  background: linear-gradient(180deg, #fff9e6 0%, #fffdf5 100%);
+}
+
+/* Decorative dashed pattern for About */
+.about::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  /* Larger abstract blobs */
+  background-image: radial-gradient(circle at 90% 80%, rgba(255, 229, 130, 0.25) 0 160px, rgba(255, 229, 130, 0) 170px),
+                    radial-gradient(circle at 20% 20%, rgba(255, 241, 175, 0.3) 0 130px, rgba(255, 241, 175, 0) 140px);
+  background-repeat: no-repeat;
+  z-index: -2;
+}
+
+/* Contact — subtle purple-blue tint with blur */
+.contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -3;
+  background: linear-gradient(180deg, rgba(224, 231, 255, 0.9) 0%, rgba(237, 233, 254, 0.9) 100%);
+  backdrop-filter: blur(6px);
+}
+
+/* Decorative plus icons for Contact */
+.contact::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  /* Soft plus shapes via multiple radial gradients forming abstract shape */
+  background-image: radial-gradient(circle at 15% 30%, rgba(212, 207, 255, 0.28) 0 110px, rgba(212, 207, 255, 0) 120px),
+                    radial-gradient(circle at 80% 70%, rgba(212, 207, 255, 0.25) 0 90px, rgba(212, 207, 255, 0) 100px);
+  background-repeat: no-repeat;
+  z-index: -2;
 }
 
 .project__grid {
@@ -259,6 +364,9 @@ body {
 /* ===== Responsive Navigation ===== */
 @media (max-width: 640px) {
   .nav__list {
+    position: static;
+    flex-direction: row;
+    display: flex;
     gap: 0.5rem;
   }
   .navbar {
@@ -269,6 +377,13 @@ body {
   }
   .intro__headline {
     margin-inline: auto;
+  }
+  .nav-wrapper {
+    position: relative; /* anchor dropdown */
+  }
+  /* Hide hamburger; not needed */
+  .nav__toggle {
+    display: none;
   }
 }
 
@@ -405,4 +520,15 @@ body {
 
 .project--image:hover .project__overlay-desc {
   opacity: 1;
-} 
+}
+
+/* Fun yet readable font for headings */
+h1, h2, h3, .logo {
+  font-family: 'Poppins', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Apply Poppins font to project card text */
+.project__title-bar,
+.project__overlay-desc {
+  font-family: 'Poppins', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+}

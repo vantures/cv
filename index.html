@@ -3,23 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Carey Van | Software Engineer</title>
+  <title>Carey Van | Building, Learning, Growing</title>
   <!-- Inter font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Poppins font (fun yet professional) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
   <!-- Scripts -->
   <script src="script.js" defer></script>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
 </head>
 <body>
   <header class="navbar">
     <div class="nav-wrapper">
-      <div class="logo">Carey&nbsp;Van</div>
+      <a href="#home" class="logo" aria-label="Carey Van home">
+        <img src="assets/images/cv-logo.png" alt="Carey Van logo" />
+      </a>
+      <button class="nav__toggle" aria-label="Menu" aria-expanded="false">☰</button>
       <nav class="nav">
         <ul class="nav__list">
-          <li><a href="#home">Home</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -58,7 +64,7 @@
           <a href="https://lunaby.ai" class="project__link" target="_blank" rel="noopener">
             <img src="assets/images/lunaby-landing.png" alt="Screenshot of Lunaby.ai landing page" class="project__img" />
             <div class="project__title-bar">Lunaby.ai</div>
-            <div class="project__overlay-desc">Lunaby is a bedtime story app I built using Supabase, Lovable, and OpenAI. It generates personalized stories and images based on a child’s name and interests, with audio narration via ElevenLabs. I learned how to build engaging user flows and balance creativity with performance.</div>
+            <div class="project__overlay-desc">Lunaby is a bedtime story app I built using Supabase, Lovable, and OpenAI. It generates personalized stories and images based on a child's name and interests, with audio narration via ElevenLabs. I learned how to build engaging user flows and balance creativity with performance.</div>
           </a>
         </article>
 
@@ -77,16 +83,15 @@
     <section id="about" class="about container animate">
       <h2>About</h2>
       <p>I'm a CPA with over 15 years of experience, including 8 years focused on revenue accounting in the fast-paced world of SaaS. I like making things work better, whether that means automating a clunky workflow, building internal tools, or eliminating one more pointless mouse click. I'm big on smart processes, creative problem-solving, and using technology to make finance a little less painful and a lot more efficient.</p>
-      <p>Outside of work, I’m a husband, a dad of two, and someone with probably too many hobbies. I’m usually reading something interesting, chasing live music, or brainstorming new ideas. I believe good work comes from a mix of curiosity, technical skill, and a healthy desire to keep improving things, even just 1% at a time.</p>
-      </section>
+      <p>Outside of work, I'm a husband, a dad of two, and someone with probably too many hobbies. I'm usually reading something interesting, chasing live music, or brainstorming new ideas. I believe good work comes from a mix of curiosity, technical skill, and a healthy desire to keep improving things, even just 1% at a time.</p>
+    </section>
 
     <!-- Contact -->
     <section id="contact" class="contact container animate">
       <h2>Contact</h2>
-      <p>Feel free to reach out on any platform below.</p>
+      <p>Please reach out below.</p>
       <div class="contact__links">
         <a href="mailto:careyvan84@gmail.com" aria-label="Email Carey">✉️</a>
-        <a href="https://github.com/careyvan" target="_blank" rel="noopener" aria-label="GitHub"></a>
         <a href="https://linkedin.com/in/carey-van" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
       </div>
     </section>
