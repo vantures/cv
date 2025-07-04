@@ -522,6 +522,11 @@ body {
   opacity: 1;
 }
 
+/* Show overlay when IntersectionObserver marks card as visible (mobile) */
+.project__overlay-desc.visible {
+  opacity: 1;
+}
+
 /* Fun yet readable font for headings */
 h1, h2, h3, .logo {
   font-family: 'Poppins', 'Inter', 'Helvetica Neue', Arial, sans-serif;

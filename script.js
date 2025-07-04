@@ -33,4 +33,22 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // Auto-reveal project descriptions on touch devices when in view
+  if (window.matchMedia('(hover: none)').matches) {
+    const observerOptions = { threshold: 0.5 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const overlay = entry.target.querySelector('.project__overlay-desc');
+        if (!overlay) return;
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+          overlay.classList.add('visible');
+        } else {
+          overlay.classList.remove('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.project--image').forEach((card) => observer.observe(card));
+  }
 }); 
