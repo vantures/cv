@@ -36,12 +36,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Auto-reveal project descriptions on touch devices when in view
   if (window.matchMedia('(hover: none)').matches) {
-    const observerOptions = { threshold: 0.5 };
+    // Root margin shrinks the viewport so intersection only triggers near center (~10% band)
+    const observerOptions = {
+      root: null,
+      rootMargin: '-45% 0px -45% 0px', // central 10% vertical slice
+      threshold: 0
+    };
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         const overlay = entry.target.querySelector('.project__overlay-desc');
         if (!overlay) return;
-        if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+        if (entry.isIntersecting) {
           overlay.classList.add('visible');
         } else {
           overlay.classList.remove('visible');
